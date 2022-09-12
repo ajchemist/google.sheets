@@ -1,0 +1,45 @@
+{:linters
+ {:unused-namespace
+  {:exclude [
+             clojure.spec.alpha
+             clojure.java.io
+             clojure.java.shell
+             clojure.string
+             clojure.test
+             reitit.core
+             rum.core
+             ]}
+
+
+  :unused-referred-var
+  {:exclude {
+             clojure.test [is are deftest testing]
+             }}
+
+
+  :unresolved-namespace
+  {:exclude [#_js]}
+
+
+  :unresolved-var
+  {:exclude [taoensso.carmine]}
+
+
+  :unused-binding
+  {:exclude-destructured-keys-in-fn-args true
+   :exclude-destructured-as              true}
+  }
+
+
+ :lint-as
+ {
+  clojure.core.cache/defcache clojure.core/defrecord
+
+  rum.core/defc  clj-kondo.lint-as/def-catch-all
+  rum.core/defcc clj-kondo.lint-as/def-catch-all
+  rum.core/defcs clj-kondo.lint-as/def-catch-all
+  }
+
+
+ :skip-comments true
+ }
